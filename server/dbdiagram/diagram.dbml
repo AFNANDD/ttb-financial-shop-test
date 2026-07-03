@@ -1,0 +1,56 @@
+Table ProductDetail {
+  Id bigint [pk, increment]
+  Code nvarchar(50) [not null, unique]
+  Name nvarchar(200) [not null]
+  Price decimal(18,2) [not null]
+  CreatedAt datetime [not null]
+}
+
+Table ProductStock {
+  Id bigint [pk, increment]
+  ProductCode nvarchar(50) [not null, unique]
+  Quantity int [not null]
+  UpdatedAt datetime [not null]
+}
+
+Table ProductCart {
+  Id bigint [pk, increment]
+  UserId bigint [not null]
+  Status nvarchar(20) [not null]
+  CreatedAt datetime [not null]
+  UpdatedAt datetime [not null]
+}
+
+Table ProductCartItem {
+  Id bigint [pk, increment]
+  CartId bigint [not null]
+  ProductCode nvarchar(50) [not null]
+  Quantity int [not null]
+  UnitPrice decimal(18,2) [not null]
+}
+
+Table ProductOrder {
+  Id bigint [pk, increment]
+  UserId bigint [not null]
+  OrderNo nvarchar(50) [not null, unique]
+  TotalAmount decimal(18,2) [not null]
+  Status nvarchar(20) [not null]
+  CreatedAt datetime [not null]
+}
+
+Table ProductOrderItem {
+  Id bigint [pk, increment]
+  OrderId bigint [not null]
+  ProductCode nvarchar(50) [not null]
+  Quantity int [not null]
+  UnitPrice decimal(18,2) [not null]
+  TotalPrice decimal(18,2) [not null]
+}
+
+Ref: ProductStock.ProductCode > ProductDetail.Code
+
+Ref: ProductCartItem.CartId > ProductCart.Id [delete: cascade]
+Ref: ProductCartItem.ProductCode > ProductDetail.Code
+
+Ref: ProductOrderItem.OrderId > ProductOrder.Id [delete: cascade]
+Ref: ProductOrderItem.ProductCode > ProductDetail.Code

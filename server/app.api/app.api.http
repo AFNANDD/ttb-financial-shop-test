@@ -1,0 +1,74 @@
+@app.api_HostAddress = http://localhost:5033
+@accessToken = PUT_ACCESS_TOKEN_HERE
+
+### Public - Health
+GET {{app.api_HostAddress}}/api/health
+Accept: application/json
+
+### Public - Register
+POST {{app.api_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+	"name": "Demo User",
+	"username": "demo",
+	"password": "P@ssw0rd123"
+}
+
+### Public - Login
+POST {{app.api_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+	"username": "demo",
+	"password": "P@ssw0rd123"
+}
+
+### Secured - Users
+GET {{app.api_HostAddress}}/api/user
+Authorization: Bearer {{accessToken}}
+
+### Secured - Create User
+POST {{app.api_HostAddress}}/api/user
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+	"name": "Admin User",
+	"username": "admin",
+	"password": "P@ssw0rd123",
+	"role": "Admin"
+}
+
+### Secured - Projects
+GET {{app.api_HostAddress}}/api/project
+Authorization: Bearer {{accessToken}}
+
+### Secured - Create Project
+POST {{app.api_HostAddress}}/api/project
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+	"name": "Reservation Core",
+	"description": "Main reservation backend",
+	"createdBy": "system",
+	"updatedBy": "system"
+}
+
+### Secured - Activities
+GET {{app.api_HostAddress}}/api/activity
+Authorization: Bearer {{accessToken}}
+
+### Secured - Create Activity
+POST {{app.api_HostAddress}}/api/activity
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+	"userId": 1,
+	"projectId": 1,
+	"date": "2026-07-03",
+	"hours": 8,
+	"description": "Implement auth and CRUD endpoints"
+}

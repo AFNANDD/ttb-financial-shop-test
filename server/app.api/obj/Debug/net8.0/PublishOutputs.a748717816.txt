@@ -1,0 +1,11 @@
+C:\dev\reservation\run-api\app.api.exe
+C:\dev\reservation\run-api\appsettings.Development.json
+C:\dev\reservation\run-api\appsettings.json
+C:\dev\reservation\run-api\app.api.dll
+C:\dev\reservation\run-api\app.api.deps.json
+C:\dev\reservation\run-api\app.api.runtimeconfig.json
+C:\dev\reservation\run-api\app.api.pdb
+C:\dev\reservation\run-api\Microsoft.OpenApi.dll
+C:\dev\reservation\run-api\Swashbuckle.AspNetCore.Swagger.dll
+C:\dev\reservation\run-api\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\dev\reservation\run-api\Swashbuckle.AspNetCore.SwaggerUI.dll
